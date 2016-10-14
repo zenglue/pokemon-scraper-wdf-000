@@ -1,12 +1,12 @@
 class Pokemon
   attr_accessor :id, :name, :type, :db
 
-#rspec is passing only one argument?, this passes with only one arg, shouldnt it need at least 3?
-  def initialize(id, name, type)
+  def initialize(id=nil, name=nil, type=nil, hp=60)
     @id = id
     @name = name
     @type = type
     @db = db
+    @hp = hp
   end
 
   def self.save(name, type, db)
@@ -18,4 +18,9 @@ class Pokemon
     result = db.execute(sql, id)[0]
     Pokemon.new(result[0], result[1], result[2])
   end
+
+#  def alter_hp(id, db)
+#    sql = "UPDATE pokemon SET hp = ? WHERE id = ?"
+#    db.execute(sql, hp, id)
+#  end
 end
