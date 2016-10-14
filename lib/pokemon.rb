@@ -16,6 +16,8 @@ class Pokemon
 
 #undefined method `id' for [[1, "Pikachu", "electric"]]:Array  is this right?
   def self.find(id, db)
-    db.execute("SELECT * FROM pokemon WHERE pokemon.id= ?",id)
+    sql = "SELECT * FROM pokemon WHERE id = ?"
+    result = db.execute(sql, id)[0]
+    Pokemon.new(result[0],[1],[2])
   end
 end
