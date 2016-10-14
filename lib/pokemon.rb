@@ -13,8 +13,6 @@ class Pokemon
     db.execute("INSERT INTO pokemon (name, type) VALUES (?,?)",name, type)
   end
 
-
-#undefined method `id' for [[1, "Pikachu", "electric"]]:Array  is this right?
   def self.find(id, db)
     sql = "SELECT * FROM pokemon WHERE id = ?"
     result = db.execute(sql, id)[0]
